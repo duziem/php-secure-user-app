@@ -1,18 +1,18 @@
 #php-secure-user-app  
-#This document is a support guide to aid users in running this Application
-#This Application is designed in the PHP Programming Language
-#This Application makes use of an **MVC/OOP PHP pattern**
-#This Application leverages the Bootstrap framework and CSS for styling
-#This Application files and directory are contained in the directory named "Applicant app using mvc and oop pattern"
-#The Application main files are contained in the app directory
-#code has been included in the .htaccess file located in the public folder that points any URL Address entered into the browser to the '/public/index.php' file
-#URL Address entered into the browser is then parsed within the 'Application.php' file located in '/app/core' directory
-#This Application uses routes in navigating to the various parts of the application
+#This document is a support guide to aid users in running this Application  
+#This Application is designed in the PHP Programming Language  
+#This Application makes use of an **MVC/OOP PHP pattern**  
+#This Application leverages the Bootstrap framework and CSS for styling  
+#This Application files and directory are contained in the directory named "Applicant app using mvc and oop pattern"  
+#The Application main files are contained in the app directory  
+#code has been included in the .htaccess file located in the public folder that points any URL Address entered into the browser to the '/public/index.php' file  
+#URL Address entered into the browser is then parsed within the 'Application.php' file located in '/app/core' directory  
+#This Application uses routes in navigating to the various parts of the application  
 
------------------------FILE LOCATIONS-----------------------------
-#The apply, login and recover files are contained in the 'auth' folder located in: /app/views/auth
-#The confirm, status and detail files are contained in the 'home' folder located in: /app/views/home
------------------------FILE LOCATIONS-----------------------------
+-----------------------FILE LOCATIONS-----------------------------  
+#The apply, login and recover files are contained in the 'auth' folder located in: /app/views/auth  
+#The confirm, status and detail files are contained in the 'home' folder located in: /app/views/home  
+-----------------------FILE LOCATIONS-----------------------------  
 
   - For development purpose, this application was test run using the XAMPP package
   - Navigate to the htdocs folder located in: xampp\htdocs, then move the folder "Applicant app using mvc and oop pattern" into the htdocs folder
