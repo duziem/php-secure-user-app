@@ -1,0 +1,41 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <title>PHP mini Application</title>
+        <meta charset="UTF-8">
+        <meta name="view-port" content="width=device-width, initial-scale=1.0, maximum-scale= 1, user-scalable= no">
+        <link href="/css/home.css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    </head>
+    <body>
+
+    <div class="container" style="overflow: hidden">
+        <div id="nav">
+            <nav id="navBar">
+                <div id="icon">
+                    <img src="/app_icon/icon.png" alt="application icon">
+                </div>
+                <div id="nav-li">
+                    <ul>
+                        <li><a href="/auth/recover">Log in</a></li> |
+                        <li><a href="/auth/login">Register</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <hr/>
+        <div id="section">
+            <div>
+                <h1>php secure user</h1>
+                <h1>application</h1>
+            </div>
+            <!--
+            <div class="col-md-12 col-md-offset-2 col-xs-12">
+                <span>php secure user application</span>
+            </div>
+            -->
+        </div>
+    </div>
+<?php
+    include_once Views.'footer.phtml';
+?>

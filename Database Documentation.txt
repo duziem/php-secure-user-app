@@ -1,0 +1,28 @@
+# The Application makes use of a single database called 'users_db'
+# The database comprises of two tables namely: 'temp' and 'users' tables
+# The Application makes use of SQL relational database
+
+
+# the temp table is a temporary table that temporarily stores the access code that would be assigned to an applicant by the admin
+# The temp table holds the access code until the applicant's registration is completed after which it is dropped from the database
+# The table contains 1 column/field name
+         * The table makes use of an InnoDB engine and UTF-8 character set
+         * The 'ACCESS CODE' field contains the access code sent to the applicant by the admin during registration: it is required
+
+# The users table holds the entire applicant's data filled by an applicant during his/her registeration
+# The table contains 12 columns/field names
+         * The table makes use of an InnoDB engine and UTF-8 character set
+         * The 'ID' field is dynamically set and is used as the primary key
+         * The 'ACCESS CODE' field contains the access code that the applicant enters when applying: it is required
+         * The 'FIRST NAME' field contains the first name of the applicant and is of datatype VARCHAR: it is required
+         * The 'LAST NAME' field contains the last name of the applicant and is of datatype VARCHAR: it is required
+         * The 'ADDRESS' field contains the address of the applicant and is of datatype VARCHAR: it is required
+         * The 'MARITAL STATUS' field contains the marital status of the applicant and is of datatype ENUM: it is required
+         *      The 'MARITAL STATUS' field stores either the value 'Single' or 'Married'
+         * The 'EDUCATION' field contains the Educational background of the applicant and is of datatype VARCHAR
+         * The 'SUBJECTS' field contains the subjects studied by the applicant
+         * The 'RELIGION' field contains the religion of the applicant and is of datatype ENUM: it is required
+         *      The 'RELIGION' field stores one of the three values 'Islam', 'Christianity', 'Traditional'
+         * The 'STATE' field contains the state of the applicant and is of datatype VARCHAR: it is required
+         * The 'DATE OF BIRTH' field contains the date of birth of the applicant and is of datatype DATE: it is required
+         * The 'IMAGE' field contains the image name of the image uploaded by the applicant and is of datatype VARCHAR

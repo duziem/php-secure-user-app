@@ -1,0 +1,73 @@
+<?php
+include_once Views . 'header.phtml';
+?>
+
+    <div class="container" ></br></br></br></br></br>
+        <form  method="POST" enctype="application/x-www-form-urlencoded" action="/auth/login">
+            <div class="row" style="padding: 20px 10px 100px 10px;
+            max-width:960px;box-shadow:4px 4px 4px rgba(0,0,0,.4),-4px -4px 4px rgba(0,0,0,.4)">
+                <div class="col-md-6 col-xs-12">
+                    <div style="padding-top: 10px">
+                        <p style="color: #20b2aa;font-size: 3.0vw;font-family:helvetica">
+                            You can login to this application once you have an access code by the system administrator
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="row">
+                        <div class="row" style="margin-bottom: 30px">
+                            <h2 id="title" class="col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2"
+                                style="text-align: center;font-family: 'helvetica',
+                                sans-serif;text-transform: capitalize;margin-bottom: 10px;color:skyblue"
+                            >
+                                log in
+                            </h2>
+                        </div>
+                        <div class="col-md-8 col-md-offset-2" style="border: 1px solid gray;
+                min-height:240px;padding: 40px 10px 20px 0">
+
+                            <!------------ Access code field ------------>
+                            <div class="row" style="margin-bottom: 20px">
+                                <div class="col-md-10 col-md-offset-1 col-xs-8 col-xs-offset-2">
+                                    <label for="code">Access Code:&nbsp;&nbsp;</label>
+                                    <input id="code" name="activationCode" type="text" required size="28" placeholder="Input code here"
+                                           class="form-control" style="border: 2px ridge skyblue;">
+                                </div>
+                            </div>
+
+                            <!------------ Error Messages div ------------>
+                            <div class="row" style="margin-bottom: 20px">
+                                <div id="error" class="col-xs-8 col-xs-offset-2" style="color:#ff0000">
+                                    <?php
+                                    if(isset($this->viewData['requiredError'])){
+                                        echo $this->viewData['requiredError'];
+                                    }
+                                    if(isset($this->viewData['codeMatchError'])){
+                                        echo $this->viewData['codeMatchError'];
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
+                            <!------------ Submit Button ------------>
+                            <div class="row">
+                                <div id="submitBtn" class="col-md-8 col-md-offset-2 col-xs-9 col-xs-offset-1">
+                                    <input required autofocus pattern="^[0-9]+$" name="activateBtn" type="Submit" value="SUBMIT"
+                                     class="btn btn-info" style="outline:none;width:100%"
+                                    >
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+<?php
+include_once Views . 'footer.phtml';
+?>

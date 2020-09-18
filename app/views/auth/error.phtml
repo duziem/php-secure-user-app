@@ -1,0 +1,19 @@
+
+<?php
+include_once Views . 'header.phtml';
+?>
+
+<div class="container">
+    <div style="padding: 10px; color:red; text-transform: capitalize; font: 20px bold Times New Roman, sans-serif">
+        <?php
+        for($i= 0;$i < count($this->viewData['errors']); $i++){
+            echo $this->viewData['errors'][$i];
+        }
+
+        ?>
+    </div>
+
+</div>
+<?php
+include_once Views . 'footer.phtml';
+?>

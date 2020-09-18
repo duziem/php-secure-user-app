@@ -1,0 +1,79 @@
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+ body div.container{
+    padding-top: 50px;
+}
+nav#navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav#navBar div#icon img{
+    width:40px;
+    height:40px;
+    align-self: flex-start;
+    border-radius: 15%;
+}
+nav#navBar div#nav-li{
+    height:40px;
+}
+nav#navBar div#nav-li>ul{
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+}
+nav#navBar div#nav-li>ul li{
+    list-style: none;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+nav#navBar div#nav-li>ul li>a{
+    text-decoration: none;
+    color:teal;
+}
+nav#navBar div#nav-li>ul li>a:hover{
+    color:cornflowerblue;
+    cursor: pointer;
+}
+
+#section{
+    text-transform: uppercase;
+    /*color: teal;*/
+    color:#00A5C4;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#section h1{
+    font:  8em bolder helvetica, san-serif;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    background-image: url("/images/abstract4.jpg");
+    background-repeat: no-repeat;
+    line-height: 0.56em;
+}
+#section h1:nth-child(2){
+    margin-left: 120px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    background-image: url("/images/abstract.jpg");
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 800px) {
+    #section h1{
+        font:  42px bolder Times New Roman, san-serif;
+        line-height: 0.56em;
+    }
+    #section h1:nth-child(2){
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,213 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <title>PHP mini Application</title>
+    <meta charset="UTF-8">
+    <meta name="view-port" content="width=device-width, initial-scale=1, maximum-scale= 1, user-scalable= no">
+    <link href="/css/apply.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <script src="/js/jquery-1.11.2.min.js" ></script>
+    <script src="/js/bootstrap.min.js" ></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#image').click(function (event) {
+                event.preventDefault();
+            });
+
+            $('#imageFile').change(function (event) {
+                const imageFile= $('#imageFile').val();
+                if(imageFile == ''){
+                    return false;
+                }else{
+
+                    const extension= imageFile.split('.').pop().toLowerCase();
+                    if(jQuery.inArray(extension, ['jpg', 'png', 'jpeg']) == -1) {
+
+                        //set file field to empty
+                        $('#imageFile').val(' ');
+                        return false;
+                    }else{
+                        const imageUrl= URL.createObjectURL(event.target.files[0]);
+
+                        //set image field src attribute to file field value
+                        $('#image').attr('src', imageUrl);
+                    }
+                }
+
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <form action="/auth/apply" method="POST" enctype="multipart/form-data">
+        <div class="row" style="border: 1px solid black">
+            <div class="row" style="padding: 20px 0">
+                <h1 class="col-xs-8 col-xs-offset-4">ONLINE APPLICATION</h1>
+            </div>
+
+            <div style="padding: 0 20px">
+                <table class="table table-bordered">
+
+                    <?php
+                    foreach ($this->viewData['fields'] as $fieldName => $fieldValue) {
+                        if($fieldName === 'subjects') {
+                    ?>
+                            <!------------ Select Best Subject Field Checkboxes ----------------------->
+                            <tr>
+                                <td>
+                                    <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                                </td>
+                                <td>
+                                    <div id="<?php echo $fieldName; ?>">
+                                        <label class="checkbox-inline"><input type="checkbox" value="Mathematics" name="Mathematics">Mathematics</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="English" name="English">English</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Science" name="Science">Science</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Government" name="Government">Government</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Art" name="Art">Art</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Civic" name="Civic">Civic</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Computer" name="Computer">Computer</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="History" name="History">History</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Agriculture" name="Agriculture">Art</label>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <?php
+                            continue;
+                            }elseif ($fieldName === 'religion') {
+                            ?>
+                            <!------------ Religion Field Radio Buttons ----------------------->
+                            <tr>
+                                <td>
+                                    <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                                </td>
+                                <td>
+                                    <div id="<?php echo $fieldName; ?>" class="radio-inline">
+                                        <label class="radio-inline"><input checked type="radio" id="islam" value="Islam" name="<?php echo $fieldName; ?>">Islam</label>
+                                        <label class="radio-inline"><input type="radio" id="islam" value="Christianity" name="<?php echo $fieldName; ?>">Christianity</label>
+                                        <label class="radio-inline"><input type="radio" id="islam" value="Traditional" name="<?php echo $fieldName; ?>">Traditional</label>
+
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        <?php
+                        continue;
+                        }elseif ($fieldName === 'maritalStatus') {
+                        ?>
+                            <!------------ Marital Status Field Radio Buttons ----------------------->
+                            <tr>
+                                <td>
+                                    <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                                </td>
+                                <td>
+                                    <div id="<?php echo $fieldName; ?>" class="radio-inline">
+                                        <label class="radio-inline"><input checked type="radio" value="Single" name="<?php echo $fieldName; ?>">Single</label>
+                                        <label class="radio-inline"><input type="radio" value="Married" name="<?php echo $fieldName; ?>">Married</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        <?php
+                            continue;
+                        }elseif ($fieldName === 'dateOfBirth') {
+                        ?>
+                            <!------------ Date of Birth Field Date Picker ----------------------->
+                            <tr>
+                                <td>
+                                    <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                                </td>
+                                <td>
+                                    <input required type="date" id="<?php echo $fieldName; ?>" name="<?php echo $fieldName; ?>">
+                                </td>
+                            </tr>
+
+                        <?php
+                            continue;
+                        }
+                        elseif ($fieldName === 'image') {
+                            /** This is the Image uploads section: consisting of a file and image input field
+                             *  uses a file field to select an image the image is then previewed using an image field
+                             */
+                        ?>
+                            <!------------ Image Upload Field ----------------------->
+                            <tr>
+                                <td>
+                                    <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                                </td>
+                                <td>
+                                    <input type="image" alt="" width="120" height="120" id="image">
+                                    <input type="file" id="imageFile" name="<?php echo $fieldName; ?>"
+                                    accept="image/jpg, image/png, image/jpeg"
+                                    >
+                                </td>
+                            </tr>
+                        <?php
+                            continue;
+                        }elseif ($fieldName === 'address') {
+                        ?>
+                            <!------------ Address Text Field ----------------------->
+                            <tr>
+
+                                <td>
+                                    <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                                </td>
+                                <td>
+                                    <input pattern="^[-A-Za-z0-9, ]+[A-Za-z]+$" class="form-control" type="text" required name="<?php echo $fieldName; ?>" id="<?php echo $fieldName; ?>">
+                                </td>
+                            </tr>
+                        <?php
+                            continue;
+                        }elseif ($fieldName === 'state' || $fieldName === 'education') {
+                        ?>
+                            <!------------ State of Origin and Educational Background Text Fields ----------------------->
+                            <tr>
+                                <td>
+                                    <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                                </td>
+                                <td>
+                                    <input pattern="^[A-Za-z ]+$" class="form-control" type="text" required name="<?php echo $fieldName; ?>" id="<?php echo $fieldName; ?>">
+                                </td>
+                            </tr>
+                        <?php
+                            continue;
+                        }
+                        ?>
+                        <!------------ First Name and Last Name Text Fields ----------------------->
+                        <tr>
+                            <td>
+                                <label for="<?php echo $fieldName; ?>"><?php echo $fieldValue; ?></label>
+                            </td>
+                            <td>
+                                <input autofocus pattern="^[A-Za-z]+$" class="form-control" type="text" required name="<?php echo $fieldName; ?>" id="<?php echo $fieldName; ?>">
+                            </td>
+                        </tr>
+
+                        <?php
+                    }
+                    ?>
+
+                </table>
+            </div>
+            <!------------ Submit Button ----------------------->
+            <div class="row" style="padding: 20px 0">
+                <input class="col-xs-4 col-xs-offset-4" name="applyBtn" id="applyBtn" type="Submit" value="Submit"
+                   style="background-color: #9acfea;color: black;padding: 10px 20px;
+                   box-shadow: rgb(0,0,0) 2px 2px 8px;font-size: 20px"
+                >
+            </div>
+        </div>
+
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'];?>">
+    </form>
+</div>
+
+<?php
+include_once Views . 'footer.phtml';
+?>
