@@ -1,3 +1,4 @@
+### This Application implements a tight and secure user registration and login system that protects against malicious attacks and harmful user actions such as: SQL injection, cross site request forgery(csrf), multiple user registration attempts, unauthenticated access  
 #php-secure-user-app  
 #This document is a support guide to aid users in running this Application  
 #This Application is designed in the PHP Programming Language  
