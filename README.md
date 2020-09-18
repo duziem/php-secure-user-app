@@ -23,6 +23,6 @@
   - Apply by clicking on the register link provided at the top of the home page
   - Upon successful application, you can login at anytime using the login link provided at the top of the home page
   - The root url of this application points to the home/homepage route:
-    * This is the root page that is rendered when you enter the URI of your running server, e.g loclahost:800 into your preferred browser
+    - This is the root page that is rendered when you enter the URI of your running server, e.g loclahost:800 into your preferred browser
   - Endeavour to use an updated browser to run this application
   
