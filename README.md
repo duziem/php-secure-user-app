@@ -1,4 +1,4 @@
-#php-secure-user-app
+#php-secure-user-app  
 #This document is a support guide to aid users in running this Application
 #This Application is designed in the PHP Programming Language
 #This Application makes use of an **MVC/OOP PHP pattern**
